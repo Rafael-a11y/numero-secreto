@@ -11,10 +11,10 @@ window.SpeechRecognition =
 
   function onSpeak(evento)
   {
-    console.log(evento.results[0][0].transcript);
-    console.log(evento)
+    console.log(evento.target.lang);
     let chute = evento.results[evento.results.length - 1][0].transcript;
-    exibeConteudo(chute)
+    exibeConteudo(chute);
+    validarChute(chute);
   }
 
   function exibeConteudo(chute)
