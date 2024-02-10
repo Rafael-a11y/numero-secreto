@@ -3,13 +3,18 @@ function validarChute(chute)
     const numero = +chute;
     if(numeroInvalido(numero))
     {
-        console.log("Chute inválido");
+        elementoNumero.innerHTML +=` <div>Chute inválido, não é um número</div>`;
     }
-    if(foraDoIntervalo(numero))
+    else if(foraDoIntervalo(numero))
     {
-        console.log(`Valor fora do intervalo permitido, o número precisa estar entre 
-        ${menorValor} e ${maiorValor}`);
+       elementoNumero.innerHTML += (`<div>Valor inválido: o número precisa estar entre 
+        ${menorValor} e ${maiorValor}</div>`);
     }
+    else if(numero === numeroAleatorio)
+    {
+        elementoNumero.innerHTML += `<div>Parabéns, você acertou, o número secreto é: ${numeroAleatorio}.</div>`
+    }
+
 }
 
 function numeroInvalido(numero) {

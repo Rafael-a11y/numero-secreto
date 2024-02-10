@@ -11,7 +11,6 @@ window.SpeechRecognition =
 
   function onSpeak(evento)
   {
-    console.log(evento.target.lang);
     let chute = evento.results[evento.results.length - 1][0].transcript;
     exibeConteudo(chute);
     validarChute(chute);
@@ -19,8 +18,11 @@ window.SpeechRecognition =
 
   function exibeConteudo(chute)
   {
-    elementoNumero.innerHTML = 
-    `<div>Você disse:</div>
+    elementoNumero.innerHTML = `
+    <div>Você disse:</div>
     <span class="box">${chute}</span>
-    <div>O número secreto é maior <i class="fa-solid fa-up-long"></i></div>`;
+    `;
   }
+
+  `<div>O número secreto é maior <i class="fa-solid fa-up-long"></i></div>
+  `
