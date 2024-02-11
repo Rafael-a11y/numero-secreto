@@ -44,3 +44,14 @@ h3
     padding: 10px;
     margin: 20px;
 }
+
+#jogar-novamente
+{
+    border: 0;
+    background-color: var(--primary-color);
+    display: inline-block;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    margin: 3rem auto 0 auto
+}

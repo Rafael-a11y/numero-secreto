@@ -3,10 +3,12 @@ window.SpeechRecognition =
 
   const elementoNumero = document.querySelector("#chute");
   const recognition = new SpeechRecognition();
+  // const jogarNovamenteBtn = document.querySelector("#jogar-novamente");
   recognition.lang = "pt-BR";
   recognition.continuous = true;
   recognition.start();
-  
+
+
   recognition.addEventListener("result", onSpeak);
 
   function onSpeak(evento)
@@ -23,6 +25,3 @@ window.SpeechRecognition =
     <span class="box">${chute}</span>
     `;
   }
-
-  `<div>O número secreto é maior <i class="fa-solid fa-up-long"></i></div>
-  `

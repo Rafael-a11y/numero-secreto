@@ -1,9 +1,9 @@
  
 const menorValor = 1;
-const maiorValor = 10;
+const maiorValor = 1000;
 const elementoMenorValor = document.querySelector("#menor-valor");
 const elementoMaiorValor =  document.querySelector("#maior-valor");
-const numeroAleatorio = gerarNumeroAleatorio();
+let numeroAleatorio = gerarNumeroAleatorio();
 elementoMenorValor.textContent = menorValor;
 elementoMaiorValor.textContent = maiorValor;
 ""

@@ -1,6 +1,7 @@
+
 function validarChute(chute)
 {
-    const numero = +chute;
+    const numero = parseInt(chute);
     if(numeroInvalido(numero))
     {
         elementoNumero.innerHTML +=` <div>Chute inválido, não é um número</div>`;
@@ -12,7 +13,16 @@ function validarChute(chute)
     }
     else if(numero === numeroAleatorio)
     {
-        elementoNumero.innerHTML += `<div>Parabéns, você acertou, o número secreto é: ${numeroAleatorio}.</div>`
+        document.body.innerHTML = `<h2>Parabéns, você acertou!</h2>
+        <h3>O número secreto era ${numeroAleatorio}.</h3>
+        <button id='jogar-novamente' class='btn-jogar'>Jogar novamente</button>`
+        recognition.continuous = false;
+        recognition.stop();
+    }
+    else
+    {
+        elementoNumero.innerHTML+= numero < numeroAleatorio ? `<div>O número secreto é maior <i class="fa-solid fa-up-long"></i></div>`:
+        `<div>O número secreto é menor <i class="fa-solid fa-down-long"></i></div>`
     }
 
 }
@@ -25,3 +35,9 @@ function foraDoIntervalo(numero)
 {
     return numero > maiorValor || numero < menorValor;
 }
+
+document.addEventListener("click", e =>
+{
+    e.target.id == "jogar-novamente"; 
+    window.location.reload();
+});
