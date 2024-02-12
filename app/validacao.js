@@ -18,6 +18,7 @@ function validarChute(chute)
         <button id='jogar-novamente' class='btn-jogar'>Jogar novamente</button>`
         recognition.continuous = false;
         recognition.stop();
+        document.dispatchEvent(new CustomEvent("acerto"));
     }
     else
     {
@@ -35,9 +36,3 @@ function foraDoIntervalo(numero)
 {
     return numero > maiorValor || numero < menorValor;
 }
-
-document.addEventListener("click", e =>
-{
-    e.target.id == "jogar-novamente"; 
-    window.location.reload();
-});

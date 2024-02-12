@@ -10,6 +10,8 @@ window.SpeechRecognition =
 
   const comecar = () =>
   {
+    numeroAleatorio = gerarNumeroAleatorio();
+    console.log("Número secreto novo:", numeroAleatorio)
     recognition.continuous = true;
     recognition.start();
     document.body.innerHTML = 
@@ -21,10 +23,8 @@ window.SpeechRecognition =
         </span> e <span id="maior-valor">
             100.
         </span>
-    </h3>
-    <div id="chute" class="mensagem">
-        ${elementoNumero}
-    </div>`;
+    </h3>`;
+    document.body.append(elementoNumero);
   };
 
   document.addEventListener("acerto", () =>

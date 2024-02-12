@@ -6,7 +6,6 @@ const elementoMaiorValor =  document.querySelector("#maior-valor");
 let numeroAleatorio = gerarNumeroAleatorio();
 elementoMenorValor.textContent = menorValor;
 elementoMaiorValor.textContent = maiorValor;
-""
 
 function gerarNumeroAleatorio()
 {
