@@ -8,6 +8,30 @@ window.SpeechRecognition =
   recognition.continuous = true;
   recognition.start();
 
+  const comecar = () =>
+  {
+    recognition.continuous = true;
+    recognition.start();
+    document.body.innerHTML = 
+    `<h1>Acerte o Número Secreto</h1>
+    <h3>
+        O número secreto está entre 
+        <span id="menor-valor">
+            0
+        </span> e <span id="maior-valor">
+            100.
+        </span>
+    </h3>
+    <div id="chute" class="mensagem">
+        ${elementoNumero}
+    </div>`;
+  };
+
+  document.addEventListener("acerto", () =>
+  {
+    bt = document.querySelector("#jogar-novamente");
+    bt.addEventListener("click", comecar);
+  });
 
   recognition.addEventListener("result", onSpeak);
 
