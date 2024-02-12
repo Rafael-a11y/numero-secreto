@@ -13,12 +13,7 @@ function validarChute(chute)
     }
     else if(numero === numeroAleatorio)
     {
-        document.body.innerHTML = `<h2>Parabéns, você acertou!</h2>
-        <h3>O número secreto era ${numeroAleatorio}.</h3>
-        <button id='jogar-novamente' class='btn-jogar'>Jogar novamente</button>`
-        recognition.continuous = false;
-        recognition.stop();
-        document.dispatchEvent(new CustomEvent("acerto"));
+        terminar(true);
     }
     else
     {
@@ -35,4 +30,18 @@ function numeroInvalido(numero) {
 function foraDoIntervalo(numero)
 {
     return numero > maiorValor || numero < menorValor;
+}
+
+function terminar(valor)
+{
+    const h2 = document.createElement("h2");
+    document.body.innerHTML = "";
+    valor == true ? h2.textContent = "Parabéns, você acertou!" : h2.textContent = "Você optou por terminar o game!";
+    document.body.append(h2);
+    document.body.innerHTML += 
+    `<h3>O número secreto era ${numeroAleatorio}.</h3>
+    <button id='jogar-novamente' class='btn-jogar'>Jogar novamente</button>`;
+    recognition.continuous = false;
+    recognition.stop();
+    document.dispatchEvent(new CustomEvent("acertou-terminou"));
 }

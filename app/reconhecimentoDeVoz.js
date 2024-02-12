@@ -1,7 +1,7 @@
 window.SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
-  const elementoNumero = document.querySelector("#chute");
+  const   elementoNumero = document.querySelector("#chute");
   const recognition = new SpeechRecognition();
   // const jogarNovamenteBtn = document.querySelector("#jogar-novamente");
   recognition.lang = "pt-BR";
@@ -27,7 +27,7 @@ window.SpeechRecognition =
     document.body.append(elementoNumero);
   };
 
-  document.addEventListener("acerto", () =>
+  document.addEventListener("acertou-terminou", () =>
   {
     bt = document.querySelector("#jogar-novamente");
     bt.addEventListener("click", comecar);
@@ -38,6 +38,13 @@ window.SpeechRecognition =
   function onSpeak(evento)
   {
     let chute = evento.results[evento.results.length - 1][0].transcript;
+    if(chute == "terminar" || chute == " terminar")
+    {
+      console.log("terminou mesmo:", chute)
+      console.log(chute);
+      terminar(false);
+    } 
+      
     exibeConteudo(chute);
     validarChute(chute);
   }
