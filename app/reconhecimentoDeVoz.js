@@ -5,11 +5,11 @@ window.SpeechRecognition =
   const recognition = new SpeechRecognition();
   // const jogarNovamenteBtn = document.querySelector("#jogar-novamente");
   recognition.lang = "pt-BR";
-  recognition.continuous = true;
   recognition.start();
 
 
   recognition.addEventListener("result", onSpeak);
+  recognition.addEventListener("end", () => {recognition.start();});
 
   function onSpeak(evento)
   {
